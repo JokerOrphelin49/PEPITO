@@ -17,17 +17,29 @@ x = 0
 isOpen = None
 oldIsOpen = None
 
+TIME_BEFORE_ACTION = 5 # seconds
+time_from_change = 0
+
 while True:
-	oldIsOpen = isOpen
 	isOpen = GPIO.input(SENSOR)
 
 	if (isOpen and (isOpen != oldIsOpen)):
-		print("Space is unoccupied!")
-		GPIO.output(RED, False)
-		GPIO.output(YELLOW, True)
+		if time_from_change >= TIME_BEFORE_ACTION:
+			print("Opened!")
+			GPIO.output(RED, False)
+			GPIO.output(YELLOW, True)
+			time_from_change = 0
+			oldIsOpen = isOpen
+		else:
+			time_from_change += 0.1
 	elif (isOpen != oldIsOpen):
-		print("Space is occupied!")
-		GPIO.output(YELLOW, False)
-		GPIO.output(RED, True)
+		if time_from_change >= TIME_BEFORE_ACTION:
+			print("Closed!")
+			GPIO.output(YELLOW, False)
+			GPIO.output(RED, True)
+			time_from_change = 0
+			oldIsOpen = isOpen
+		else:
+			time_from_change += 0.1
 
 	time.sleep(0.1)
