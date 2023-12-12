@@ -13,6 +13,9 @@ GPIO.setup(SENSOR, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
 x = 0
 
+isOpen = None
+oldIsOpen = None
+
 while True:
 	oldIsOpen = isOpen
 	isOpen = GPIO.input(DOOR_SENSOR_PIN)
