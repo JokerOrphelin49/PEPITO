@@ -18,11 +18,11 @@ while True:
 	isOpen = GPIO.input(DOOR_SENSOR_PIN)
  
 	if (isOpen and (isOpen != oldIsOpen)):
-		print "Space is unoccupied!"
+		print("Space is unoccupied!")
 		GPIO.output(RED, False)
 		GPIO.output(YELLOW, True)
 	elif (isOpen != oldIsOpen):
-		print "Space is occupied!"
+		print("Space is occupied!")
   		GPIO.output(YELLOW, False)
 		GPIO.output(RED, True)
 
