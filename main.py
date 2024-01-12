@@ -4,6 +4,8 @@ from discord import Webhook
 import aiohttp
 import asyncio
 from time import sleep
+#Buzzer
+BUZZER = 7
 
 def send_message(msg: str):
 	async def inner():
@@ -15,8 +17,8 @@ def send_message(msg: str):
  
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(4, GPIO.OUT)
-pin7 = GPIO.PWM(4, 100)
+GPIO.setup(BUZZER, GPIO.OUT)
+pin7 = GPIO.PWM(BUZZER, 100)
 pin7.start(50)
 
 GPIO.setwarnings(False)
@@ -68,7 +70,7 @@ while True:
 				onOpen()
 			else:
 				onClose()
-			GPIO.output(7, GPIO.HIGH)
+			GPIO.output(BUZZER, GPIO.HIGH)
 			pin7.ChangeFrequency(16.35) # C0
 			sleep(1)
 			pin7.ChangeFrequency(261.63) # C4
@@ -89,7 +91,7 @@ while True:
 			sleep(1.5)
 			pin7.ChangeFrequency(16.35) # C0
 			sleep(1)
-			GPIO.output(7, GPIO.LOW)
+			GPIO.output(BUZZER, GPIO.LOW)
 			sleep(1)
 		else:
 			time_from_change += 0.1
