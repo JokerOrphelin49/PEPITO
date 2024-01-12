@@ -1,5 +1,12 @@
 import RPi.GPIO as GPIO
 import time
+from discord import Webhook
+import aiohttp
+
+async def send_message(msg: str):
+    async with aiohttp.ClientSession() as session:
+        webhook = Webhook.from_url('https://discord.com/api/webhooks/1195361569270407259/VdWl_9swoRMxeUnEJYuwHeyKHXWXs0nYIc4ReFvBFg6itygQxzmUty2idMwXkDlpmLlq', session=session)
+        await webhook.send(msg, username='Pepito Ier')
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -27,11 +34,13 @@ TIME_BEFORE_ACTION = 5 # seconds
 time_from_change = 0
 
 def onOpen():
+	send_message("Porte Ouverte")
 	print("Opened!")
 	GPIO.output(RED, False)
 	GPIO.output(YELLOW, True)
 
 def onClose():
+	send_message("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR01SR_zVtraxBzNdicrhSqSBOxZShSeMlHr2W5WcEbaA&s")
 	print("Closed!")
 	GPIO.output(YELLOW, False)
 	GPIO.output(RED, True)
