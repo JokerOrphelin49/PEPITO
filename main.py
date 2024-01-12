@@ -5,7 +5,7 @@ import aiohttp
 import asyncio
 
 def send_message(msg: str):
-	def inner():
+	async def inner():
 	    async with aiohttp.ClientSession() as session:
 	        webhook = Webhook.from_url('https://discord.com/api/webhooks/1195361569270407259/VdWl_9swoRMxeUnEJYuwHeyKHXWXs0nYIc4ReFvBFg6itygQxzmUty2idMwXkDlpmLlq', session=session)
 	        await webhook.send(msg, username='Pepito Ier')
