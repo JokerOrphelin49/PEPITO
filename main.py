@@ -5,7 +5,7 @@ import aiohttp
 import asyncio
 from time import sleep
 #Buzzer
-BUZZER = 7
+BUZZER = 4
 
 def send_message(msg: str):
 	async def inner():
