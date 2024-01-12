@@ -63,19 +63,4 @@ while True:
 		else:
 			time_from_change += 0.1
 
-	""" if (isOpen and (isOpen != oldIsOpen)):
-		if time_from_change >= TIME_BEFORE_ACTION:
-			onOpen()
-			time_from_change = 0
-			oldIsOpen = isOpen
-		else: # à améliorer
-			time_from_change += 0.1
-	elif (isOpen != oldIsOpen):
-		if time_from_change >= TIME_BEFORE_ACTION:
-			onClose()
-			time_from_change = 0
-			oldIsOpen = isOpen
-		else:
-			time_from_change += 0.1 """
-
 	time.sleep(0.1)
