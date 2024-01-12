@@ -2,11 +2,14 @@ import RPi.GPIO as GPIO
 import time
 from discord import Webhook
 import aiohttp
+import asyncio
 
-async def send_message(msg: str):
-    async with aiohttp.ClientSession() as session:
-        webhook = Webhook.from_url('https://discord.com/api/webhooks/1195361569270407259/VdWl_9swoRMxeUnEJYuwHeyKHXWXs0nYIc4ReFvBFg6itygQxzmUty2idMwXkDlpmLlq', session=session)
-        await webhook.send(msg, username='Pepito Ier')
+def send_message(msg: str):
+	def inner():
+	    async with aiohttp.ClientSession() as session:
+	        webhook = Webhook.from_url('https://discord.com/api/webhooks/1195361569270407259/VdWl_9swoRMxeUnEJYuwHeyKHXWXs0nYIc4ReFvBFg6itygQxzmUty2idMwXkDlpmLlq', session=session)
+	        await webhook.send(msg, username='Pepito Ier')
+	asyncio.run(inner())
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
