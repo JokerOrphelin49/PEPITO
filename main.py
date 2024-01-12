@@ -3,6 +3,7 @@ import time
 from discord import Webhook
 import aiohttp
 import asyncio
+from time import sleep
 
 def send_message(msg: str):
 	async def inner():
@@ -10,6 +11,13 @@ def send_message(msg: str):
 	        webhook = Webhook.from_url('https://discord.com/api/webhooks/1195361569270407259/VdWl_9swoRMxeUnEJYuwHeyKHXWXs0nYIc4ReFvBFg6itygQxzmUty2idMwXkDlpmLlq', session=session)
 	        await webhook.send(msg, username='Pepito Ier')
 	asyncio.run(inner())
+
+ 
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(4, GPIO.OUT)
+pin7 = GPIO.PWM(4, 100)
+pin7.start(50)
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -60,6 +68,29 @@ while True:
 				onOpen()
 			else:
 				onClose()
+			GPIO.output(7, GPIO.HIGH)
+			pin7.ChangeFrequency(16.35) # C0
+			sleep(1)
+			pin7.ChangeFrequency(261.63) # C4
+			sleep(1)
+			pin7.ChangeFrequency(293.66) # D4
+			sleep(1)
+			pin7.ChangeFrequency(329.63) # E4
+			sleep(1)
+			pin7.ChangeFrequency(349.23) # F4
+			sleep(1)
+			pin7.ChangeFrequency(392.00) # G4
+			sleep(1)
+			pin7.ChangeFrequency(440.00) # A4
+			sleep(1)
+			pin7.ChangeFrequency(493.88) # B4
+			sleep(1)
+			pin7.ChangeFrequency(523.25) # A5
+			sleep(1.5)
+			pin7.ChangeFrequency(16.35) # C0
+			sleep(1)
+			GPIO.output(7, GPIO.LOW)
+			sleep(1)
 		else:
 			time_from_change += 0.1
 
