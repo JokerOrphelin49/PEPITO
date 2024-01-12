@@ -15,14 +15,13 @@ def send_message(msg: str):
 	asyncio.run(inner())
 
  
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(BUZZER, GPIO.OUT)
-pin7 = GPIO.PWM(BUZZER, 100)
-pin7.start(50)
+
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
+GPIO.setup(BUZZER, GPIO.OUT)
+pin7 = GPIO.PWM(BUZZER, 100)
+pin7.start(50)
 
 # Pin numbers
 RED = 14
