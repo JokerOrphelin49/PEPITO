@@ -91,7 +91,6 @@ while True:
 			pin7.ChangeFrequency(16.35) # C0
 			sleep(1)
 			GPIO.output(BUZZER, GPIO.LOW)
-			print(GPIO.LOW)
 		else:
 			time_from_change += 0.1
 
