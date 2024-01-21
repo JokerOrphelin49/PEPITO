@@ -7,6 +7,7 @@ from time import sleep
 #Buzzer
 BUZZER = 4
 
+# Envoyer un message sur discord
 def send_message(msg: str):
 	async def inner():
 	    async with aiohttp.ClientSession() as session:
@@ -16,7 +17,7 @@ def send_message(msg: str):
 
  
 
-
+# variables pour le buzzer
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(BUZZER, GPIO.OUT)
@@ -45,23 +46,28 @@ oldIsOpen = None
 TIME_BEFORE_ACTION = 5 # seconds
 time_from_change = 0
 
+# action à réaliser lors de l'ouverture
 def onOpen():
 	send_message("Porte Ouverte")
 	print("Opened!")
 	GPIO.output(RED, False)
 	GPIO.output(YELLOW, True)
 
+# action à réaliser lors de la fermeture
 def onClose():
 	send_message("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR01SR_zVtraxBzNdicrhSqSBOxZShSeMlHr2W5WcEbaA&s")
 	print("Closed!")
 	GPIO.output(YELLOW, False)
 	GPIO.output(RED, True)
 
+# boucle principale
 while True:
 	# Get the state of the sensor
 	isOpen = GPIO.input(SENSOR)
 
+    # la porte vient de changer d'été
 	if (isOpen != oldIsOpen):
+        # on vérifie si le délai est dépassé
 		if time_from_change >= TIME_BEFORE_ACTION:
 			time_from_change = 0
 			oldIsOpen = isOpen
@@ -69,6 +75,7 @@ while True:
 				onOpen()
 			else:
 				onClose()
+            # musique jouée par le buzzer à chaque ouverture/fermeture
 			GPIO.output(BUZZER, GPIO.HIGH)
 			pin7.ChangeFrequency(16.35) # C0
 			sleep(1)
