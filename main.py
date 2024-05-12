@@ -75,7 +75,12 @@ def send_message(msg: str):
 	    async with aiohttp.ClientSession() as session:
 	        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/1239175726641451008/U8uIUUcKhWd2FnEVxfJoPlQ-Q2YTz825B0GSDgtvjUirOmG-eXW8XH8CUJaAm8WG9UFk', session=session)
 	        await webhook.send(msg, username='Pepito')
-	asyncio.run(inner())
+	try:
+		asyncio.run(inner())
+		break
+	except Exception as e:
+		print("an error occured: " + e)
+	
 
 # Variables to check if the state changes
 isOpen = None # Current door state
