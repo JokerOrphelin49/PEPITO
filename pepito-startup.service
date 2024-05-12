@@ -1,7 +1,7 @@
 [Unit]
 Description=Pulls from Pepito repo and starts the program
-Wants=network.target
-After=network-online.target
+Wants=network-online.target
+After=network.target network-online.target
 
 [Service]
 Type=simple
