@@ -44,7 +44,7 @@ def getOpenedMessage():
 	return message.opened
 def getClosedMessage():
 	if message == None:
-		random.choice(MESSAGES).closed
+		message = random.choice(MESSAGES).closed
 	return message.closed
 
 # action à réaliser lors du démarrage
