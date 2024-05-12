@@ -48,7 +48,7 @@ def getOpenedMessage():
 	print("the message: " + message)
 	return message.opened
 def getClosedMessage():
-	println("before global")
+	print("before global")
 	global message
 	global MESSAGES
 	print("global ok")	
