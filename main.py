@@ -45,6 +45,7 @@ for message in MESSAGES:
 	print("opened: " + message.opened + ", closed: " + message.closed)
 a_message = random.choice(MESSAGES)
 print(type(a_message))
+print("opened: " + a_message.opened + ", closed: " + a_message.closed)
 
 message = None
 def getOpenedMessage():
