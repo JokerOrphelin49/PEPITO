@@ -41,6 +41,11 @@ for line in state_messages_file.readlines():
 	print("opened: " + message.opened + ", closed: " + message.closed)
 	MESSAGES.append(message)
 
+for message in MESSAGES:
+	print("opened: " + message.opened + ", closed: " + message.closed)
+a_message = random.choice(MESSAGES)
+print(type(a_message))
+
 message = None
 def getOpenedMessage():
 	print("before global")
