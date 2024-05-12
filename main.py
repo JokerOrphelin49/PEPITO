@@ -31,16 +31,22 @@ time_from_change = 0
 OPENED_MESSAGE = "Porte Ouverte"
 CLOSED_MESSAGE = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR01SR_zVtraxBzNdicrhSqSBOxZShSeMlHr2W5WcEbaA&s"
 
+def getOpenedMessage():
+	return OPENED_MESSAGE
+
+def getClosedMessage():
+	return CLOSED_MESSAGE
+
 # action à réaliser lors de l'ouverture
 def onOpen():
-	send_message(OPENED_MESSAGE)
+	send_message(getOpenedMessage())
 	print("Opened!")
 	GPIO.output(RED, False)
 	GPIO.output(YELLOW, True)
 
 # action à réaliser lors de la fermeture
 def onClose():
-	send_message(CLOSED_MESSAGE)
+	send_message(getClosedMessage())
 	print("Closed!")
 	GPIO.output(YELLOW, False)
 	GPIO.output(RED, True)
