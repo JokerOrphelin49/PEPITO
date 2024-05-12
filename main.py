@@ -116,6 +116,6 @@ while True:
 	# sleep during the night
 	now = datetime.now()
 	if now.hour >= SLEEP:
-		tommorow_wake_time = datetime(year = now.year, month = now.month, day = now.day) + datetime.timedelta(days = 1, hours = WAKE)
+		tommorow_wake_time = datetime(year = now.year, month = now.month, day = now.day) + timedelta(days = 1, hours = WAKE)
 		pause.until(tommorow_wake_time)
 
