@@ -40,12 +40,12 @@ for line in state_messages_file.readlines():
 	opened, closed = line.split("|")
 	MESSAGES.append(MessagePair(opened, closed))
 
-message = null
+message = None
 def getOpenedMessage():
 	message = random.choice(MESSAGES)
 	return message.opened
 def getClosedMessage():
-	if message_num == null:
+	if message_num == None:
 		random.choice(MESSAGES).closed
 	return message.closed
 
