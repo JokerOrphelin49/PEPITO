@@ -43,7 +43,7 @@ def getOpenedMessage():
 	message = random.choice(MESSAGES)
 	return message.opened
 def getClosedMessage():
-	if message_num == None:
+	if message == None:
 		random.choice(MESSAGES).closed
 	return message.closed
 
