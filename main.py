@@ -4,6 +4,7 @@ from discord import Webhook
 import aiohttp
 import asyncio
 from time import sleep
+import random
 
 # time step
 STEP = 0.1
@@ -28,14 +29,24 @@ TIME_BEFORE_ACTION = 5 # delay in seconds
 time_from_change = 0
 
 # Messages
-OPENED_MESSAGE = "Porte Ouverte"
-CLOSED_MESSAGE = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR01SR_zVtraxBzNdicrhSqSBOxZShSeMlHr2W5WcEbaA&s"
+class MessagePair:
+	def __init__(self, opened, closed):
+		self.opened = opened
+		self.closed = closed
+MESSAGES = []
+state_messages_file = open("state_messages.txt", "r")
+for line in state_messages_file.readlines():
+	opened, closed = line.split("|")
+	MESSAGES.append(MessagePair(opened, closed))
 
+message = null
 def getOpenedMessage():
-	return OPENED_MESSAGE
-
+	message = random.choice(MESSAGES)
+	return message.opened
 def getClosedMessage():
-	return CLOSED_MESSAGE
+	if message_num == null:
+		random.choice(MESSAGES).closed
+	return message.closed
 
 # action à réaliser lors de l'ouverture
 def onOpen():
