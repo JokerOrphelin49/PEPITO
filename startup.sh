@@ -1,4 +1,4 @@
 #!/bin/bash
 cd PEPITO
 git pull
-/usr/bin/python
+/usr/bin/python main.py
