@@ -6,7 +6,7 @@ import asyncio
 from time import sleep
 import random
 import pause
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # time step
 STEP = 0.1
