@@ -44,7 +44,8 @@ def getOpenedMessage():
 	global message, MESSAGES
 	message = random.choice(MESSAGES)
 	return message.opened
-def getClosedMessag, MESSAGES
+def getClosedMessage():
+	global message, MESSAGES
 	if message == None:
 		message = random.choice(MESSAGES)
 	return message.closed
