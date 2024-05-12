@@ -16,6 +16,7 @@ SENSOR = 18
 
 # Set the modes of each pin
 # RED and YELLOW are LEDs for testing
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(RED, GPIO.OUT)
 GPIO.setup(YELLOW, GPIO.OUT)
