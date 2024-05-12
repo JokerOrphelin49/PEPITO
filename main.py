@@ -37,7 +37,7 @@ state_messages_file = open("state_messages.txt", "r")
 for line in state_messages_file.readlines():
 	opened, closed = line.split("|")
 	message = MessagePair(opened, closed)
-	print(message)
+	print("message: " + message + ", opened: " + opened + ", closed: " + closed)
 	MESSAGES.append(message)
 
 message = None
