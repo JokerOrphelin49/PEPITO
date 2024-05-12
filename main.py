@@ -56,6 +56,7 @@ def getClosedMessage():
 	print("global ok")	
 	if message == None:
 		message = random.choice(MESSAGES).closed
+		print("initiated message")
 	print("the message: " + message)
 	return message.closed
 
