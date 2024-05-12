@@ -23,7 +23,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(SENSOR, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
 # Variables to wait some time before acting (ex: if the door rapidly opens and closes in repetition)
-TIME_BEFORE_ACTION = 5 # delay in seconds
+TIME_BEFORE_ACTION = 1 # delay in seconds
 time_from_change = 0
 
 # Messages
@@ -40,7 +40,9 @@ for line in state_messages_file.readlines():
 
 message = None
 def getOpenedMessage():
-	global message, MESSAGES
+	println("before global")
+	global message
+	global MESSAGES
 	println("global ok")
 	message = random.choice(MESSAGES)
 	println("the message: " + message)
