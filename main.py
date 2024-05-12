@@ -22,10 +22,6 @@ GPIO.setup(RED, GPIO.OUT)
 GPIO.setup(YELLOW, GPIO.OUT)
 GPIO.setup(SENSOR, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
-# Variables to check if the state changes
-isOpen = None # Current door state
-oldIsOpen = None # Last registered door state (for which an action was taken)
-
 # Variables to wait some time before acting (ex: if the door rapidly opens and closes in repetition)
 TIME_BEFORE_ACTION = 5 # delay in seconds
 time_from_change = 0
@@ -72,6 +68,9 @@ def send_message(msg: str):
 	        await webhook.send(msg, username='Pepito Ier')
 	asyncio.run(inner())
 
+# Variables to check if the state changes
+isOpen = None # Current door state
+oldIsOpen = GPIO.input(SENSOR) # Last registered door state (for which an action was taken)
 # boucle principale
 while True:
 	# Get the state of the sensor
