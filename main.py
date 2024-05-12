@@ -10,16 +10,16 @@ import random
 STEP = 0.1
 
 # Pin numbers
-RED = 14
-YELLOW = 15
+#RED = 14
+#YELLOW = 15
 SENSOR = 18
 
 # Set the modes of each pin
 # RED and YELLOW are LEDs for testing
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(RED, GPIO.OUT)
-GPIO.setup(YELLOW, GPIO.OUT)
+#GPIO.setup(RED, GPIO.OUT)
+#GPIO.setup(YELLOW, GPIO.OUT)
 GPIO.setup(SENSOR, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
 # Variables to wait some time before acting (ex: if the door rapidly opens and closes in repetition)
@@ -27,6 +27,7 @@ TIME_BEFORE_ACTION = 5 # delay in seconds
 time_from_change = 0
 
 # Messages
+START_MESSAGE = "PEPITO is here!"
 class MessagePair:
 	def __init__(self, opened, closed):
 		self.opened = opened
@@ -46,19 +47,24 @@ def getClosedMessage():
 		random.choice(MESSAGES).closed
 	return message.closed
 
+# action à réaliser lors du démarrage
+def onStart():
+	send_message(START_MESSAGE)
+	print("Started!")
+
 # action à réaliser lors de l'ouverture
 def onOpen():
 	send_message(getOpenedMessage())
 	print("Opened!")
-	GPIO.output(RED, False)
-	GPIO.output(YELLOW, True)
+	#GPIO.output(RED, False)
+	#GPIO.output(YELLOW, True)
 
 # action à réaliser lors de la fermeture
 def onClose():
 	send_message(getClosedMessage())
 	print("Closed!")
-	GPIO.output(YELLOW, False)
-	GPIO.output(RED, True)
+	#GPIO.output(YELLOW, False)
+	#GPIO.output(RED, True)
 
 # Envoyer un message sur discord
 def send_message(msg: str):
@@ -71,6 +77,8 @@ def send_message(msg: str):
 # Variables to check if the state changes
 isOpen = None # Current door state
 oldIsOpen = GPIO.input(SENSOR) # Last registered door state (for which an action was taken)
+
+onStart()
 # boucle principale
 while True:
 	# Get the state of the sensor
