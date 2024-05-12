@@ -41,7 +41,9 @@ for line in state_messages_file.readlines():
 message = None
 def getOpenedMessage():
 	global message, MESSAGES
+	println("global ok")
 	message = random.choice(MESSAGES)
+	println("the message: " + message)
 	return message.opened
 def getClosedMessage():
 	global message, MESSAGES
