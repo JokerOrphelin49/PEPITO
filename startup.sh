@@ -1,4 +1,3 @@
 #!/bin/bash
-cd PEPITO
-git pull
-/usr/bin/python main.py
+git pull /home/pepito/PEPITO
+/usr/bin/python /home/pepito/PEPITO/main.py
