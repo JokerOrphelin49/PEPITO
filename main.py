@@ -12,7 +12,7 @@ from datetime import datetime
 STEP = 0.1
 
 # Sleep time
-SLEEP = 23 # heure, attention si on le déplace après minuit le code ne marchera plus
+SLEEP = 17 # heure, attention si on le déplace après minuit le code ne marchera plus
 WAKE = 6
 
 # Pin numbers
