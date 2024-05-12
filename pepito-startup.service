@@ -1,0 +1,14 @@
+[Unit]
+Description=Pulls from Pepito repo and starts the program
+Wants=network.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/startup.sh
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
