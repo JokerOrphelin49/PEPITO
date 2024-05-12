@@ -27,7 +27,7 @@ TIME_BEFORE_ACTION = 5 # delay in seconds
 time_from_change = 0
 
 # Messages
-START_MESSAGE = "PEPITO is here!"
+START_MESSAGE = "Pepito is here!"
 class MessagePair:
 	def __init__(self, opened, closed):
 		self.opened = opened
@@ -71,7 +71,7 @@ def send_message(msg: str):
 	async def inner():
 	    async with aiohttp.ClientSession() as session:
 	        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/1239175726641451008/U8uIUUcKhWd2FnEVxfJoPlQ-Q2YTz825B0GSDgtvjUirOmG-eXW8XH8CUJaAm8WG9UFk', session=session)
-	        await webhook.send(msg, username='Pepito Ier')
+	        await webhook.send(msg, username='Pepito')
 	asyncio.run(inner())
 
 # Variables to check if the state changes
