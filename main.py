@@ -37,34 +37,16 @@ state_messages_file = open("state_messages.txt", "r")
 for line in state_messages_file.readlines():
 	opened, closed = line.split("|")
 	message = MessagePair(opened, closed)
-	print("opened: " + opened + ", closed: " + closed)
-	print("opened: " + message.opened + ", closed: " + message.closed)
 	MESSAGES.append(message)
-
-for message in MESSAGES:
-	print("opened: " + message.opened + ", closed: " + message.closed)
-a_message = random.choice(MESSAGES)
-print(type(a_message))
-print("opened: " + a_message.opened + ", closed: " + a_message.closed)
 
 message = None
 def getOpenedMessage():
-	print("before global")
-	global message
-	global MESSAGES
-	print("global ok")
+	global message, MESSAGES
 	message = random.choice(MESSAGES)
-	print("the message: " + message)
 	return message.opened
-def getClosedMessage():
-	print("before global")
-	global message
-	global MESSAGES
-	print("global ok")	
+def getClosedMessag, MESSAGES
 	if message == None:
-		message = random.choice(MESSAGES).closed
-		print("initiated message")
-	print("the message: " + message)
+		message = random.choice(MESSAGES)
 	return message.closed
 
 # action à réaliser lors du démarrage
