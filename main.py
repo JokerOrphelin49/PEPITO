@@ -33,7 +33,7 @@ class MessagePair:
 		self.opened = opened
 		self.closed = closed
 MESSAGES = []
-state_messages_file = open("state_messages.txt", "r")
+state_messages_file = open("/home/pepito/PEPITO/state_messages.txt", "r")
 for line in state_messages_file.readlines():
 	opened, closed = line.split("|")
 	message = MessagePair(opened, closed)
