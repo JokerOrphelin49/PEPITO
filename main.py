@@ -83,7 +83,6 @@ def send_message(msg: str):
 	        await webhook.send(msg, username='Pepito')
 	try:
 		asyncio.run(inner())
-		break
 	except Exception as e:
 		print("an error occured: " + e)
 	
