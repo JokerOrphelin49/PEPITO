@@ -48,9 +48,13 @@ def getOpenedMessage():
 	println("the message: " + message)
 	return message.opened
 def getClosedMessage():
-	global message, MESSAGES
+	println("before global")
+	global message
+	global MESSAGES
+	println("global ok")	
 	if message == None:
 		message = random.choice(MESSAGES).closed
+	println("the message: " + message)
 	return message.closed
 
 # action à réaliser lors du démarrage
