@@ -14,6 +14,8 @@ STEP = 0.1
 #YELLOW = 15
 SENSOR = 18
 
+print("BANANE")
+
 # Set the modes of each pin
 # RED and YELLOW are LEDs for testing
 GPIO.setwarnings(False)
