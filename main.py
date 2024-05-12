@@ -5,9 +5,15 @@ import aiohttp
 import asyncio
 from time import sleep
 import random
+import pause
+from datetime import datetime
 
 # time step
 STEP = 0.1
+
+# Sleep time
+SLEEP = 23 # heure, attention si on le déplace après minuit le code ne marchera plus
+WAKE = 6
 
 # Pin numbers
 #RED = 14
@@ -106,5 +112,11 @@ while True:
 			time_from_change += STEP
 	else:
 		time_from_change = 0
-
 	time.sleep(STEP)
+	
+	# sleep during the night
+	now = datetime.now()
+	if now.hour >= SLEEP:
+		tommorow_wake_time = datetime(year = now.year, month = now.month, day = now.day) + datetime.timedelta(days = 1, hours = WAKE)
+		pause.until(tommorow_wake_time)
+
