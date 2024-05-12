@@ -40,21 +40,21 @@ for line in state_messages_file.readlines():
 
 message = None
 def getOpenedMessage():
-	println("before global")
+	print("before global")
 	global message
 	global MESSAGES
-	println("global ok")
+	print("global ok")
 	message = random.choice(MESSAGES)
-	println("the message: " + message)
+	print("the message: " + message)
 	return message.opened
 def getClosedMessage():
 	println("before global")
 	global message
 	global MESSAGES
-	println("global ok")	
+	print("global ok")	
 	if message == None:
 		message = random.choice(MESSAGES).closed
-	println("the message: " + message)
+	print("the message: " + message)
 	return message.closed
 
 # action à réaliser lors du démarrage
