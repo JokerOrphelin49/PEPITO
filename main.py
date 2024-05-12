@@ -40,9 +40,11 @@ for line in state_messages_file.readlines():
 
 message = None
 def getOpenedMessage():
+	global message, MESSAGES
 	message = random.choice(MESSAGES)
 	return message.opened
 def getClosedMessage():
+	global message, MESSAGES
 	if message == None:
 		message = random.choice(MESSAGES).closed
 	return message.closed
