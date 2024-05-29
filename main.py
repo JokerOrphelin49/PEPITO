@@ -5,7 +5,6 @@ import aiohttp
 import asyncio
 from time import sleep
 import random
-import pause
 from datetime import datetime, timedelta
 
 # time step
@@ -117,5 +116,5 @@ while True:
 	now = datetime.now()
 	if now.hour >= SLEEP:
 		tommorow_wake_time = datetime(year = now.year, month = now.month, day = now.day) + timedelta(days = 1, hours = WAKE)
-		pause.until(tommorow_wake_time)
+		#pause.until(tommorow_wake_time)
 
