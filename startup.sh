@@ -1,3 +1,3 @@
 #!/bin/bash
-git -C /home/pepito/PEPITO pull 
-/usr/bin/python /home/pepito/PEPITO/main.py
+git -C /home/PEPITO pull 
+/usr/bin/python /home/PEPITO/main.py
