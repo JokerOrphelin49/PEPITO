@@ -35,7 +35,7 @@ TIME_BEFORE_ACTION = 10 # delay in seconds
 time_from_change = 0
 
 # Messages
-START_MESSAGE = "Pepito is here!"
+START_MESSAGE = "Pepito is heeeere!"
 class MessagePair:
 	def __init__(self, opened, closed):
 		self.opened = opened
