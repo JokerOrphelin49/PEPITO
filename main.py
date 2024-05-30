@@ -14,6 +14,9 @@ STEP = 0.1
 SLEEP = 23 # heure, attention si on le déplace après minuit le code ne marchera plus
 WAKE = 6
 
+# Jours de sommeils
+SLEEP_DAYS=[5, 6] # 5 = Samedi, 6 = Dimanche
+
 # Pin numbers
 #RED = 14
 #YELLOW = 15
@@ -114,7 +117,12 @@ while True:
 	
 	# sleep during the night
 	now = datetime.now()
-	if now.hour >= SLEEP:
-		tommorow_wake_time = datetime(year = now.year, month = now.month, day = now.day) + timedelta(days = 1, hours = WAKE)
-		#pause.until(tommorow_wake_time)
-
+	today_sleep_time = datetime(year = now.year, month = now.month, day = now.day, hours = SLEEP)
+	tommorow_wake_time = datetime(year = now.year, month = now.month, day = now.day) + timedelta(days = 1, hours = WAKE)
+	while now >= today_sleep_time and now < tommorow_wake_time:
+		now = datetime.now()
+		sleep(10*60) # 10 minutes
+	while now.weekday() in SLEEP_DAYS:
+		now = datetime.now()
+		sleep(60*60) # 1 heure
+		
