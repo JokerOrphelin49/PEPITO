@@ -117,7 +117,7 @@ while True:
 	
 	# sleep during the night
 	now = datetime.now()
-	today_sleep_time = datetime(year = now.year, month = now.month, day = now.day, hours = SLEEP)
+	today_sleep_time = datetime(year = now.year, month = now.month, day = now.day) + timedelta(hours = SLEEP)
 	tommorow_wake_time = datetime(year = now.year, month = now.month, day = now.day) + timedelta(days = 1, hours = WAKE)
 	while now >= today_sleep_time and now < tommorow_wake_time:
 		now = datetime.now()
