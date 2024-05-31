@@ -11,11 +11,11 @@ from datetime import datetime, timedelta
 STEP = 0.1
 
 # Sleep time
-SLEEP = 24 # heure, attention si on le déplace après minuit le code ne marchera plus
+SLEEP = 23 # heure, attention si on le déplace après minuit le code ne marchera plus
 WAKE = 6
 
 # Jours de sommeils
-SLEEP_DAYS=[5, 6, 3] # 5 = Samedi, 6 = Dimanche
+SLEEP_DAYS=[5, 6] # 5 = Samedi, 6 = Dimanche
 
 # Pin numbers
 #RED = 14
@@ -35,7 +35,7 @@ TIME_BEFORE_ACTION = 1 # delay in seconds
 time_from_change = 0
 
 # Messages
-START_MESSAGE = "Pepito is connected!"
+START_MESSAGE = "Pepito est là!"
 class MessagePair:
 	def __init__(self, opened, closed):
 		self.opened = opened
