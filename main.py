@@ -31,11 +31,11 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(SENSOR, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
 # Variables to wait some time before acting (ex: if the door rapidly opens and closes in repetition)
-TIME_BEFORE_ACTION = 10 # delay in seconds
+TIME_BEFORE_ACTION = 1 # delay in seconds
 time_from_change = 0
 
 # Messages
-START_MESSAGE = "Pepito is heeeere!"
+START_MESSAGE = "Pepito is connected!"
 class MessagePair:
 	def __init__(self, opened, closed):
 		self.opened = opened
