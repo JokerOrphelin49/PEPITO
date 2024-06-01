@@ -36,7 +36,7 @@ TIME_BEFORE_ACTION = 1 # delay in seconds
 time_from_change = 0
 
 # Messages
-START_MESSAGE = "Pepito est là!"
+START_MESSAGE = "Pepito.png"
 class MessagePair:
 	def __init__(self, opened, closed):
 		self.opened = opened
@@ -61,7 +61,7 @@ def getClosedMessage():
 
 # action à réaliser lors du démarrage
 def onStart():
-	send_message(START_MESSAGE)
+	send_image(START_MESSAGE)
 	print("Started!")
 
 # action à réaliser lors de l'ouverture
@@ -79,6 +79,7 @@ def onClose():
 	#GPIO.output(RED, True)
 
 # Envoyer un message sur discord
+# Plus utilisé pour l'instant
 def send_message(msg: str):
 	async def inner():
 		async with aiohttp.ClientSession() as session:
