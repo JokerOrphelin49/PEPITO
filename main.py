@@ -66,14 +66,14 @@ def onStart():
 
 # action à réaliser lors de l'ouverture
 def onOpen():
-	send_message(getOpenedMessage())
+	send_image(getOpenedMessage())
 	print("Opened!")
 	#GPIO.output(RED, False)
 	#GPIO.output(YELLOW, True)
 
 # action à réaliser lors de la fermeture
 def onClose():
-	send_message(getClosedMessage())
+	send_image(getClosedMessage())
 	print("Closed!")
 	#GPIO.output(YELLOW, False)
 	#GPIO.output(RED, True)
@@ -83,8 +83,21 @@ def send_message(msg: str):
 	async def inner():
 		async with aiohttp.ClientSession() as session:
 			webhook = Webhook.from_url('https://discordapp.com/api/webhooks/1239175726641451008/U8uIUUcKhWd2FnEVxfJoPlQ-Q2YTz825B0GSDgtvjUirOmG-eXW8XH8CUJaAm8WG9UFk', session=session)
+			await webhook.send(msg, username='Pepito')
+	try:
+		asyncio.run(inner())
+	except Exception as e:
+		print("an error occured: ")
+		print(e)
 
-			file = discord.File("/home/pepito/PEPITO/Images/ferme_clement.png")
+# Envoyer une image sur discord
+# msg: le nom du fichier image à envoyer depuis le dossier Images
+def send_image(msg: str):
+	async def inner():
+		async with aiohttp.ClientSession() as session:
+			webhook = Webhook.from_url('https://discordapp.com/api/webhooks/1239175726641451008/U8uIUUcKhWd2FnEVxfJoPlQ-Q2YTz825B0GSDgtvjUirOmG-eXW8XH8CUJaAm8WG9UFk', session=session)
+
+			file = discord.File("/home/pepito/PEPITO/Images/"+msg)
 			embed = discord.Embed()
 			embed.set_image(url="attachment://ferme_clement.png")
 
