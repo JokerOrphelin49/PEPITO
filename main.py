@@ -82,7 +82,12 @@ def send_message(msg: str):
 	async def inner():
 	    async with aiohttp.ClientSession() as session:
 	        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/1239175726641451008/U8uIUUcKhWd2FnEVxfJoPlQ-Q2YTz825B0GSDgtvjUirOmG-eXW8XH8CUJaAm8WG9UFk', session=session)
-	        await webhook.send(msg, username='Pepito')
+
+			file = discord.File("/home/pepito/PEPITO/Images/ferme_clement.png")
+			embed = discord.Embed()
+			embed.set_image(url="attachment://ferme_clement.png")
+
+	        await webhook.send(file=file, embed=embed, username='Pepito')
 	try:
 		asyncio.run(inner())
 	except Exception as e:
