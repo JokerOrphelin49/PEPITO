@@ -18,7 +18,7 @@ SLEEP = 23 # heure, attention si on le déplace après minuit le code ne marcher
 WAKE = 6
 
 # Jours de sommeils
-SLEEP_DAYS=[6] # 5 = Samedi, 6 = Dimanche
+SLEEP_DAYS=[5, 6] # 5 = Samedi, 6 = Dimanche
 
 # Pin numbers
 #RED = 14
