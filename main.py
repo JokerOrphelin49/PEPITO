@@ -8,6 +8,8 @@ from time import sleep
 import random
 from datetime import datetime, timedelta
 
+WEBHOOK_URL='https://discordapp.com/api/webhooks/1246380452315398144/SAPJAb2EHz-37K58-zcW_8gCJCgvORAEU8n7lmS50NeeiX1upHjR-sM3AMOEFLLsma92'
+
 # time step
 STEP = 0.1
 
@@ -83,7 +85,7 @@ def onClose():
 def send_message(msg: str):
 	async def inner():
 		async with aiohttp.ClientSession() as session:
-			webhook = Webhook.from_url('https://discordapp.com/api/webhooks/1239175726641451008/U8uIUUcKhWd2FnEVxfJoPlQ-Q2YTz825B0GSDgtvjUirOmG-eXW8XH8CUJaAm8WG9UFk', session=session)
+			webhook = Webhook.from_url('https://discordapp.com/api/webhooks/1246380452315398144/SAPJAb2EHz-37K58-zcW_8gCJCgvORAEU8n7lmS50NeeiX1upHjR-sM3AMOEFLLsma92', session=session)
 			await webhook.send(msg, username='Pepito')
 	try:
 		asyncio.run(inner())
