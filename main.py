@@ -97,6 +97,7 @@ def send_image(msg: str):
 		async with aiohttp.ClientSession() as session:
 			webhook = Webhook.from_url('https://discordapp.com/api/webhooks/1239175726641451008/U8uIUUcKhWd2FnEVxfJoPlQ-Q2YTz825B0GSDgtvjUirOmG-eXW8XH8CUJaAm8WG9UFk', session=session)
 
+			print("/home/pepito/PEPITO/Images/"+msg.strip() +"OOOOO")
 			file = discord.File("/home/pepito/PEPITO/Images/"+msg.strip())
 			embed = discord.Embed()
 			embed.set_image(url="attachment://ferme_clement.png")
