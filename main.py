@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import discord
 from discord import Webhook
 import aiohttp
 import asyncio
@@ -91,7 +92,8 @@ def send_message(msg: str):
 	try:
 		asyncio.run(inner())
 	except Exception as e:
-		print("an error occured: " + e)
+		print("an error occured: ")
+		print(e)
 	
 
 # Variables to check if the state changes
