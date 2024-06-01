@@ -99,10 +99,10 @@ def send_image(msg: str):
 
 			print("/home/pepito/PEPITO/Images/"+msg.strip() +"OOOOO")
 			file = discord.File("/home/pepito/PEPITO/Images/"+msg.strip())
-			embed = discord.Embed()
-			embed.set_image(url="attachment://ferme_clement.png")
+			#embed = discord.Embed()
+			#embed.set_image(url="attachment://ferme_clement.png")
 
-			await webhook.send(file=file, embed=embed, username='Pepito')
+			await webhook.send(file=file, username='Pepito')
 	try:
 		asyncio.run(inner())
 	except Exception as e:
